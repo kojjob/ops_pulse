@@ -27,7 +27,7 @@ jobs:
       run: mix deps.get
 
     - name: Run Sobelow (Static Analysis)
-      run: mix sobelow --config .sobelow-conf || echo "Sobelow failed or not configured"
+      run: mix sobelow --config .sobelow-conf --exit
 
     - name: Deps Security Audit
-      run: mix hex.audit && (mix deps.audit || echo "mix deps.audit not available")
+      run: mix deps.audit
